@@ -57,7 +57,6 @@ class PetContainer extends React.Component {
      }
 
   render(){
-     console.log("state", this.state.cats)
     const makingOneCat = this.state.cats.map(cat => {
       return <Petcard key={cat.id} pet={cat} origin={'petContainer'} handleOnClick={this.handleOnClick}/>
     })

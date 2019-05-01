@@ -7,11 +7,11 @@ class MatchedPets extends React.Component{
 
   handleOnClick = (pet) => {
     this.props.addingUserIDtoPet(pet, this.props.user)
-    this.props.history.push("/AdoptionCenter")
+    this.props.history.push(`/pets/${pet.id}`)
   }
 
   render(){
-    console.log('PROPS', this.props)
+
       const allPets = this.props.user.pets
       let gettingUserMatches = []
 

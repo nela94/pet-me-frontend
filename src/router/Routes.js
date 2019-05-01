@@ -16,8 +16,9 @@ const Routes = () => {
       <Route path="/home" component={Home} />
       <Route path="/PetList" component={MatchedPets} />
       <Route path="/login" component={Login} />
-      <Route path="/pets" component={PetContainer} />
-      <Route path="/AdoptionCenter" component={AdoptedPet} />
+      <Route path="/YourBabies" component={PetContainer} />
+      <Route path='/pets/:id' component={AdoptedPet} />
+      }}/>
     </Switch>
   )
 }

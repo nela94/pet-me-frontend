@@ -15,11 +15,22 @@ class App extends React.Component {
     // console.log(this.props)
     return (
       <div className="App">
+        <div
+          className="background-overlay"
+          style={{
+            position: 'fixed',
+            backgroundColor: 'rgba(255, 255, 255, 0.6)',
+            top: '0',
+            left: '0',
+            height: '100%',
+            width: '100%',
+          }}
+         />
         <div className="container">
           <header>
             <Navbar />
 
-            </header>
+          </header>
           <section>
             <div id="container_demo" >
               <div id="wrapper">

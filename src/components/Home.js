@@ -5,11 +5,13 @@ import React from 'react'
 class Home extends React.Component {
 
   showDogs = () => {
-    this.props.history.push("/pets?type=dogs")
+    this.props.history.push("/YourBabies?type=dogs")
+
   }
 
   showCats = () => {
-    this.props.history.push("/pets?type=cats")
+    this.props.history.push("/YourBabies?type=cats")
+    
   }
 
   render(){

@@ -51,7 +51,7 @@ class Signup extends React.Component{
 							</p>
               <p className="change_link">
 									Already a member ?
-									<button onClick={this.handleButton}> Go and log in </button>
+									<button className={"button"} onClick={this.handleButton}> Go and log in </button>
 							</p>
           </form>
       </div>
