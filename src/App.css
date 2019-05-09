@@ -4,7 +4,7 @@
     font-family: 'Raleway', sans-serif;
 }
 /* CSS reset */
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+body,div,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,textarea,p,blockquote,th,td {
 	margin:0;
 	padding:0;
 }
@@ -30,13 +30,8 @@ ol,ul {
 caption,th {
 	text-align:left;
 }
-h1,h2,h3,h4,h5,h6 {
-	font-size:100%;
-	font-weight:normal;
-}
-q:before,q:after {
-	content:'';
-}
+
+
 abbr,acronym { border:0;
 }
 article, aside, details, figcaption, figure,
@@ -44,6 +39,10 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 /* General Demo Style */
+
+ol,ul {
+	list-style:none;
+}
 body{
 	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
 	background: #fff repeat top left;
@@ -57,7 +56,7 @@ a{
 	text-decoration: none;
 }
 .container{
-	width: 100%;
+	width: 50%;
 	height: 100%;
 	position: relative;
 	text-align: center;
@@ -68,7 +67,6 @@ a{
 }
 .container > header{
 	padding: 20px 30px 10px 30px;
-	margin: 0px 20px 10px 20px;
 	position: relative;
 	display: block;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
@@ -77,11 +75,10 @@ a{
 .container > header h1{
   font-size: 60px;
   color: pink;
-  padding: 2px 0 10px 0;
+  padding: 8px 0 0px 51px;
   font-family: 'FranchiseRegular',Arial,sans-serif;
   font-weight: bold;
   text-align: center;
-  padding-bottom: 30px;
 }
 .container > header h1 span{
 	color: #7cbcd6;
@@ -90,7 +87,7 @@ a{
 .container > header h2{
 	font-size: 16px;
 	font-style: italic;
-	color: #2d6277;
+	color: pink;
 	text-shadow: 0px 1px 1px rgba(255,255,255,0.8);
 }
 /* Header Style */
@@ -166,16 +163,12 @@ background-size:cover;
 	 margin: 0;
 	 padding: 0;
 	 margin: 0 auto;
+   padding-left: 30px;
 	 font-family: 'Raleway', sans-serif;
 }
 /** The wrapper that will contain our two forms **/
 #wrapper{
-	width: 60%;
-	right: 0px;
 	min-height: 560px;
-	margin: 0px auto;
-	width: 500px;
-	position: relative;
 }
 /**** Styling the form elements **/
 
@@ -187,7 +180,7 @@ background-size:cover;
 
 #wrapper h1{
 	font-size: 48px;
-	color: rgb(6, 106, 117);
+	color: rgb(115, 115, 115, 21);
 	padding: 2px 0 10px 0;
 	font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;
 	font-weight: bold;
@@ -196,13 +189,12 @@ background-size:cover;
 }
 /** For the moment only webkit supports the background-clip:text; */
 #wrapper h1{
-    background: -webkit-repeating-linear-gradient(-45deg,
+  background: -webkit-repeating-linear-gradient(-45deg,
 	rgb(18, 83, 93) ,
 	rgb(18, 83, 93) 20px,
 	rgb(64, 111, 118) 20px,
 	rgb(64, 111, 118) 40px,
 	rgb(18, 83, 93) 40px);
-	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
 }
 
@@ -235,9 +227,6 @@ input {
 	padding: 10px 5px 10px 32px;
 	border: 1px solid rgb(178, 178, 178);
 	-webkit-appearance: textfield;
-	-webkit-box-sizing: content-box;
-	  -moz-box-sizing : content-box;
-	       box-sizing : content-box;
 	-webkit-border-radius: 3px;
 	   -moz-border-radius: 3px;
 	        border-radius: 3px;
@@ -256,7 +245,7 @@ input {
 #wrapper p.button input{
 	width: 30%;
 	cursor: pointer;
-	background: rgb(61, 157, 179);
+	background: pink;
 	padding: 8px 5px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
@@ -282,7 +271,7 @@ input {
 	        transition: all 0.2s linear;
 }
 #wrapper p.button input:hover{
-	background: rgb(74, 179, 198);
+	background: rgb(115, 115, 115, 21);
 }
 #wrapper p.button input:active,
 #wrapper p.button input:focus{
@@ -303,63 +292,39 @@ p.signin.button{
 	margin: 5px 0;
 }
 
+strong {
+  padding: 0px 10px 0px 0px
+}
 
 /* styling the checkbox "keep me logged in"*/
 
 /*styling the links to change from one form to another */
 
   p.change_link{
-	position: absolute;
+	/* position: absolute; */
 	color: rgb(127, 124, 124);
 	left: 0px;
 	height: 20px;
-	width: 438px;
-	padding: 17px 30px 20px 30px;
+	width: 430px;
+	padding: 22px 44px 43px 22px;
 	font-size: 16px	;
 	text-align: right;
+  left: 111px;
 	border-top: 1px solid rgb(219, 229, 232);
 	-webkit-border-radius: 0 0  5px 5px;
 	   -moz-border-radius: 0 0  5px 5px;
 	        border-radius: 0 0  5px 5px;
-	background: rgb(225, 234, 235);
-	background: -moz-repeating-linear-gradient(-45deg,
-	rgb(247, 247, 247) ,
-	rgb(247, 247, 247) 15px,
-	rgb(225, 234, 235) 15px,
-	rgb(225, 234, 235) 30px,
-	rgb(247, 247, 247) 30px
-	);
-	background: -webkit-repeating-linear-gradient(-45deg,
-	rgb(247, 247, 247) ,
-	rgb(247, 247, 247) 15px,
-	rgb(225, 234, 235) 15px,
-	rgb(225, 234, 235) 30px,
-	rgb(247, 247, 247) 30px
-	);
-	background: -o-repeating-linear-gradient(-45deg,
-	rgb(247, 247, 247) ,
-	rgb(247, 247, 247) 15px,
-	rgb(225, 234, 235) 15px,
-	rgb(225, 234, 235) 30px,
-	rgb(247, 247, 247) 30px
-	);
-	background: repeating-linear-gradient(-45deg,
-	rgb(247, 247, 247) ,
-	rgb(247, 247, 247) 15px,
-	rgb(225, 234, 235) 15px,
-	rgb(225, 234, 235) 30px,
-	rgb(247, 247, 247) 30px
-	);
+	background: rgb(255, 255, 255, 0.6);
 }
 
 /** Styling both forms **/
 
 #login{
-	position: absolute;
-	top: 0px;
-	width: 88%;
-	padding: 18px 6% 60px 6%;
-	margin:0  35px;
+  position: absolute;
+	width: 69%;
+  left: 11%;
+	padding: 22px 6% 21px 6%;
+	margin:0  44px;
 	background: rgb(247, 247, 247);
 	border: 1px solid rgba(147, 184, 189,0.8);
 	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
@@ -371,10 +336,10 @@ p.signin.button{
 }
 #signup{
   position: absolute;
-  top: 0px;
-  width: 88%;
-  padding: 18px 6% 60px 6%;
-  margin:0  35px;
+  left: 8%;
+  width: 76%;
+  padding: 22px 6% 21px 6%;
+  margin:0  44px;
   background: rgb(247, 247, 247);
   border: 1px solid rgba(147, 184, 189,0.8);
   -webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
@@ -384,13 +349,4 @@ p.signin.button{
   -moz-border-radius: 5px;
      border-radius: 5px;
 
-}
-
-.box {
-    width:600px;
-    text-align:center; /* center align the text inside the box */
-    margin:auto; /* center this .box element, assuming it is block-level */
-}
-img {
-    margin:5px;
 }

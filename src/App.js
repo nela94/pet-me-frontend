@@ -12,7 +12,6 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
     return (
       <div className="App">
         <div
@@ -33,10 +32,10 @@ class App extends React.Component {
           </header>
           <section>
             <div id="container_demo" >
-              <div id="wrapper">
+
                 <Routes />
 
-              </div>
+
             </div>
           </section>
         </div>

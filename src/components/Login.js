@@ -3,7 +3,6 @@ import { gettingUser } from '../actions/allActions'
 import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom"
 
-
 class Login extends React.Component{
   state = {
     username: "",
@@ -26,14 +25,16 @@ class Login extends React.Component{
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.user.user !== this.props.user.user) {
+    if(prevProps.user.user !== this.props.user.user){
         this.props.history.push("/home")
+      }
     }
-  }
+
 
   render(){
-    // console.log("login", this.props)
+
     return(
+    <div id="wrapper">
       <div id="login" className="animate form">
         <form  onSubmit={this.handleSubmit} action="mysuperscript.php">
            <h1>Log in</h1>
@@ -45,16 +46,17 @@ class Login extends React.Component{
                 <label className="youpasswd"> Your password </label>
                 <input onChange={this.handleOnChange} value={this.state.password} name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
               </p>
-              <p className="login button">
+              <p className="button">
                 <input type="submit" value="Log in"/>
               </p>
 
-              <p className="change_link">
-                Not a member yet ?
-                <button onClick={this.handleButton} >Join us</button>
+              <p className="change_link button">
+                <strong>Not a member yet?</strong>
+                <input type="button" onClick={this.handleButton} value="Join us!"/>
               </p>
         </form>
       </div>
+    </div>
     )
   }
 }

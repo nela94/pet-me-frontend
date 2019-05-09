@@ -4,14 +4,16 @@ import Petcard from './Petcard'
 import '../Pet.css'
 import { connect } from 'react-redux'
 import { creatingMatches } from '../actions/allActions'
+import Swipeable from "react-swipy"
 
-// import { Card, CardWrapper } from 'react-swipeable-cards'
+let direction = ''
 
 class PetContainer extends React.Component {
 
   state = {
       dogs: [],
-      cats: []
+      cats: [],
+      index: 0
     }
 
   componentDidMount() {
@@ -38,48 +40,79 @@ class PetContainer extends React.Component {
         });
      }
 
-     handleOnClick = (pet) => {
 
-      this.props.creatingMatches(this.props.user, pet)
-
-         if(pet.type === 'Dog'){
-             const removingSelectedPet = this.state.dogs.filter(dog => dog.id !== pet.id)
-           this.setState({
-             dogs: removingSelectedPet
-           })
-         }
-        else if(pet.type === 'Cat'){
-            const removingSelectedPet = this.state.cats.filter(cat => cat.id !== pet.id)
+    onAfterSwipe = (pet) => {
+        if (direction === 'left'){
+          this.props.creatingMatches(this.props.user, pet)
           this.setState({
-            cats: removingSelectedPet
+            index: this.state.index + 1
           })
         }
-     }
+        else if (direction === 'right'){
+          if(pet.type === 'Dog'){
+              const removingSelectedPet = this.state.dogs.filter(dog => dog.id !== pet.id)
+            this.setState({
+              dogs: removingSelectedPet
+            })
+          }
+         else if(pet.type === 'Cat'){
+             const removingSelectedPet = this.state.cats.filter(cat => cat.id !== pet.id)
+           this.setState({
+             cats: removingSelectedPet
+           })
+         }
+         this.setState({
+           index: this.state.index + 1
+         })
+        }
+      }
+
 
   render(){
-    const makingOneCat = this.state.cats.map(cat => {
-      return <Petcard key={cat.id} pet={cat} origin={'petContainer'} handleOnClick={this.handleOnClick}/>
-    })
+    const makingOneCat = this.state.cats.map((cat, idx) => {
+      return (
+            <Swipeable
+              key={cat.id}
+              onSwipe={dir => { direction = dir }}
+              onAfterSwipe={() => this.onAfterSwipe(cat)}>
+                <Petcard
+                  hidden={idx !== this.state.index}
+                  origin={'petContainer'}
+                  key={cat.id}
+                  pet={cat} />
+              </Swipeable>
+            )
+          })
 
-    const makingOneDog = this.state.dogs.map(dog => {
-      return <Petcard handleOnClick={this.handleOnClick} origin={'petContainer'} key={dog.id} pet={dog}/>
+    const makingOneDog = this.state.dogs.map((dog, idx) => {
+      return (
+        <Swipeable key={dog.id}
+          onSwipe={dir => { direction = dir }}
+          onAfterSwipe={() => this.onAfterSwipe(dog)}>
+            <Petcard
+              hidden={idx !== this.state.index}
+              origin={'petContainer'}
+              key={dog.id}
+              pet={dog}/>
+        </Swipeable>
+      )
     })
 
     if(this.props.location.search === "?type=cats") {
       return(
-        <div>
-        <h1>Cats</h1>
-        <h2>Start Swipping!</h2>
-        <div>{makingOneCat}</div>
+        <div id="wrapper" className="pet-container">
+          <h2>Start Swiping<span role="img" aria-label="emoji">❤️</span></h2>
+          <h3>Swipe Left To Add To Your Adoption List</h3>
+          <div className="card">{makingOneCat}</div>
         </div>
       )
     }
     else if (this.props.location.search === "?type=dogs") {
       return (
-        <div>
-        <h1>Dogs</h1>
-        <h2>Start Swipping!</h2>
-        <div>{makingOneDog}</div>
+        <div id="wrapper" className="pet-container">
+          <h2>Start Swiping<span role="img" aria-label="emoji">❤️</span></h2>
+          <h3>Swipe Left To Add To Your Adoption List</h3>
+          <div className="card">{makingOneDog}</div>
         </div>
       )
     }
@@ -95,7 +128,6 @@ const mapStateToProps = ({user}) => ({ user })
 
 const mapDispatchToProps = dispatch => ({
   creatingMatches: (user, pet) => dispatch(creatingMatches(user, pet))
-  // puttingPetsOnBackEnd: (pet) => dispatch(puttingPetsOnBackEnd(pet))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PetContainer)

@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Petcard from './Petcard'
-import { addingUserIDtoPet } from '../actions/allActions'
+import { addingUserIDtoPet, deletingAMatch } from '../actions/allActions'
+import '../Pet.css'
 
 class MatchedPets extends React.Component{
 
@@ -10,21 +11,29 @@ class MatchedPets extends React.Component{
     this.props.history.push(`/pets/${pet.id}`)
   }
 
+  handleDeletePetFromList = (pet) => {
+    this.props.user.matches.map(match => {
+      if(pet.id === match.pet_id){
+        this.props.deletingAMatch(match)
+      }
+    })
+  }
+
   render(){
+    const allPets = this.props.user.pets
+    let gettingUserMatches = []
 
-      const allPets = this.props.user.pets
-      let gettingUserMatches = []
-
-      if (!!allPets){
-       gettingUserMatches = allPets.map(pet => {
-         return <Petcard handleOnClick={this.handleOnClick} key={pet.id} pet={pet} />
-      })
-
+    if(!!allPets){
+      gettingUserMatches = allPets.map(pet => {
+       return <Petcard handleDeletePetFromList={this.handleDeletePetFromList} handleOnClick={this.handleOnClick} key={pet.id} pet={pet} />
+     })
     }
     return(
-      <div>
-      <h1>You can only choose one!</h1>
-      {gettingUserMatches}
+      <div className="width-1000">
+        <h4>You can only choose one!</h4>
+        <div id="wrapper" className="matched-pets">
+          {gettingUserMatches}
+        </div>
       </div>
 
     )
@@ -35,7 +44,8 @@ class MatchedPets extends React.Component{
 const mapStateToProps = ({user}) => ({ user })
 
 const mapDispatchToProps = (dispatch) => ({
-  addingUserIDtoPet: (pet, user) => dispatch(addingUserIDtoPet(pet, user))
+  addingUserIDtoPet: (pet, user) => dispatch(addingUserIDtoPet(pet, user)),
+  deletingAMatch: (match) => dispatch(deletingAMatch(match))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MatchedPets)

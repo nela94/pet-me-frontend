@@ -1,14 +1,16 @@
 const loginUser = (user) => ({type: 'LOGIN_USER', payload: user})
 const usersPick = (matches) => ({type: 'USERS_PICK', payload: matches})
 const chosenPet = (petUserId) => ({type:'EDITTING_PET', payload: petUserId})
+const removeMatch = (match) => ({type: 'DELETE_MATCH', payload: match})
 
-export const newUser = (userInfo) => () =>
-  (dispatch) =>
+export const newUser = (userInfo) => {
+  console.log("hshshs")
+  return (dispatch) => {
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accepts: "application/json"
       },
       body: JSON.stringify({ user: userInfo })
     })
@@ -16,6 +18,8 @@ export const newUser = (userInfo) => () =>
       .then(userData => {dispatch(loginUser(userData),
         localStorage.setItem("token", userData.jwt))
       });
+     }
+    }
 
 export const gettingUser = (userInfo) => {
   return (dispatch) => {
@@ -23,7 +27,7 @@ export const gettingUser = (userInfo) => {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        accepts: "application/json"
+        Accepts: "application/json"
       },
       body: JSON.stringify({ user: userInfo })
     })
@@ -52,6 +56,7 @@ export const getCurrentUser = () => (dispatch) => {
   }
 
   export const creatingMatches = (user, pet) => {
+    console.log("pet created",pet)
     return (dispatch) => {
       fetch("http://localhost:3000/matches", {
         method: "POST",
@@ -65,12 +70,10 @@ export const getCurrentUser = () => (dispatch) => {
             name: pet.name,
             gender: pet.gender,
             img_full: pet.photos[0].full,
-            img_medium: pet.photos[0].medium,
-            img_large: pet.photos[0].large,
-            img_small: pet.photos[0].small,
             description: pet.description,
             adoption_id: pet.id,
             age: pet.age,
+            contact: pet.contact.email,
             user_id: null
           }
         })
@@ -80,6 +83,15 @@ export const getCurrentUser = () => (dispatch) => {
       })
     }
   }
+
+export const deletingAMatch = (match) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/matches/${match.id}`, {
+      method:'DELETE',
+    })
+    .then(dispatch(removeMatch(match)))
+  }
+}
 
 export const addingUserIDtoPet = (pet, user) => {
   return (dispatch) => {

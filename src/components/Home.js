@@ -1,28 +1,30 @@
 import React from 'react'
-
-// import { withRouter } from "react-router-dom"
+import '../Home.css'
 
 class Home extends React.Component {
 
   showDogs = () => {
-    this.props.history.push("/YourBabies?type=dogs")
-
+    this.props.history.push("/ListBabies?type=dogs")
   }
 
   showCats = () => {
-    this.props.history.push("/YourBabies?type=cats")
-    
+    this.props.history.push("/ListBabies?type=cats")
   }
 
   render(){
 
     return (
       <div>
-        <h1>PET ME!!!</h1>
         <h4>What kind of pet would you like to adopt?</h4>
         <div className="box">
-                <img onClick={this.showCats} src="https://www.gannett-cdn.com/-mm-/735f994d042682a89f8a4f2fcfd5ea505f3dc1cd/c=0-127-2995-1819/local/-/media/2015/10/31/USATODAY/USATODAY/635818943680464639-103115cute-kitty.jpg?width=320&height=360&fit=crop" alt="Cat" height="360"/>
-                <img onClick={this.showDogs} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6uUIjCN4U906iKukGxJnz37nCpq8PkonI-efAEch4uEPkvWj7" alt="Dog" height="300"/>
+            <div onClick={this.showCats} className="img__wrap">
+              <img className="image" src="https://ae01.alicdn.com/kf/HTB1KWxhXr1YBuNjSszeq6yblFXaK/5D-Diy-Diamond-Painting-Cross-Stitch-Cat-Stick-Its-Tongue-Out-Needlework-Diamond-Embroidery-Full-Round.jpg_640x640.jpg" alt="Cat" />
+              <p className="img__description">Cat List<span role="img" aria-label="emoji">❤️</span></p>
+            </div>
+            <div onClick={this.showDogs} className="img__wrap">
+              <img className="image" src="https://cdn.buzznick.com/wp-content/uploads/2018/12/funny-animals-sticking-tongues-65.jpg" alt="Dog" />
+              <p className="img__description">Dog list<span role="img" aria-label="emoji">❤️</span></p>
+            </div>
         </div>
       </div>
     )
