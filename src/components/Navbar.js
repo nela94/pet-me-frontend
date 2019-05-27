@@ -1,11 +1,11 @@
 import React from "react";
+import {connect} from 'react-redux'
 
-const Navbar = props => {
-  let token = localStorage.getItem('token')
-  console.log("heelo", token)
+class Navbar extends React.Component  {
+  render(){
   return (
 
-     token ?
+    localStorage.token && localStorage.token !== "undefined"?
      <div>
        <h1>Pet Me<span role="img" aria-label="emoji">❤️</span></h1>
          <ul>
@@ -15,9 +15,6 @@ const Navbar = props => {
            </li>
            <li>
             <a href="/PetList">Pets You Have Chosen</a>
-           </li>
-           <li>
-            <a href="/home">Keep Swiping Here</a>
            </li>
            <li onClick={() => localStorage.removeItem("token")}>
             <a href="/">Log Out</a>
@@ -30,7 +27,10 @@ const Navbar = props => {
           <h1>Pet Me<span role="img" aria-label="emoji">❤️</span></h1>
           <h2>Where A Friend Is Only A Swipe Away.</h2>
         </div>
-      );
-    };
+      )
+    }
+  }
 
-export default Navbar;
+const mapStateToProps = ({user}) => ({ user })
+
+export default connect(mapStateToProps)(Navbar)

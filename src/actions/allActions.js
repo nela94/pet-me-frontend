@@ -31,10 +31,12 @@ export const gettingUser = (userInfo) => {
       },
       body: JSON.stringify({ user: userInfo })
     })
-      .then(resp => resp.json())
-      .then(userData => {dispatch(loginUser(userData),
-        localStorage.setItem("token", userData.jwt))
-      })
+      .then(resp => (resp.ok ?
+        resp.json().then(userData => {dispatch(loginUser(userData),
+          localStorage.setItem("token", userData.jwt))})
+          :
+          resp.json().then(userData => alert(userData.message))
+        ))
     }
 }
 

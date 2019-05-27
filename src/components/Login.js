@@ -28,6 +28,9 @@ class Login extends React.Component{
     if(prevProps.user.user !== this.props.user.user){
         this.props.history.push("/home")
       }
+      else {
+        console.log("hello", prevProps.user.user, this.props.user.user)
+      }
     }
 
 
