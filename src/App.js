@@ -14,6 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+    
         <div
           className="background-overlay"
           style={{
@@ -28,14 +29,10 @@ class App extends React.Component {
         <div className="container">
           <header>
             <Navbar />
-
           </header>
           <section>
             <div id="container_demo" >
-
-                <Routes />
-
-
+              <Routes />
             </div>
           </section>
         </div>

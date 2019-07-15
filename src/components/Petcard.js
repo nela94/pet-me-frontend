@@ -15,7 +15,6 @@ class Petcard extends React.Component {
         photos = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
       }
     }
-    console.log(this.props.pet)
     return(
       !this.props.hidden &&
         <div className="card-container-master">

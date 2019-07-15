@@ -69,6 +69,8 @@ class PetContainer extends React.Component {
 
 
   render(){
+
+    console.log("consolelog", this.state)
     const makingOneCat = this.state.cats.map((cat, idx) => {
       return (
             <Swipeable

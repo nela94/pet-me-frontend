@@ -1,5 +1,4 @@
 
-
 @font-face {
     font-family: 'Raleway', sans-serif;
 }
@@ -349,4 +348,16 @@ strong {
   -moz-border-radius: 5px;
      border-radius: 5px;
 
+}
+
+.modalPractice{
+height: 200px;
+width: 200px;
+background-color: pink;
+position: fixed;
+left: 44%;
+z-index: 200;
+display: none;
+justify-content: center;
+align-items: center;
 }

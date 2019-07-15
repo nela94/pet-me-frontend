@@ -21,6 +21,10 @@ export const newUser = (userInfo) => {
      }
     }
 
+const showModal = () => {
+  document.getElementsByClassName("modalPractice")[0].style.display = "flex"
+}
+
 export const gettingUser = (userInfo) => {
   return (dispatch) => {
     fetch("http://localhost:3000/api/v1/login", {
@@ -35,7 +39,7 @@ export const gettingUser = (userInfo) => {
         resp.json().then(userData => {dispatch(loginUser(userData),
           localStorage.setItem("token", userData.jwt))})
           :
-          resp.json().then(userData => alert(userData.message))
+          resp.json().then(userData => showModal())
         ))
     }
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './App'
 import { BrowserRouter } from "react-router-dom"
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import {Provider} from 'react-redux';
-import petReducer from './reducer/allReducer';
+import {Provider} from 'react-redux'
+import petReducer from './reducer/allReducer'
+import './App.css'
 
 const store = createStore(petReducer, applyMiddleware(thunk))
 
-ReactDOM.render(<Provider store={store}> <BrowserRouter> <App /> </BrowserRouter></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}> <BrowserRouter> <div className="modalPractice">hello</div><App /> </BrowserRouter></Provider>, document.getElementById('root'));
