@@ -22,7 +22,7 @@ export const newUser = (userInfo) => {
     }
 
 const showModal = () => {
-  document.getElementsByClassName("modalPractice")[0].style.display = "flex"
+  document.getElementsByClassName("modal")[0].style.display = "flex"
 }
 
 export const gettingUser = (userInfo) => {

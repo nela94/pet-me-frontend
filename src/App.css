@@ -350,12 +350,11 @@ strong {
 
 }
 
-.modalPractice{
-height: 200px;
-width: 200px;
-background-color: pink;
+.modal{
+height: 317px;
+width: 313px;
 position: fixed;
-left: 44%;
+left: 39%;
 z-index: 200;
 display: none;
 justify-content: center;
