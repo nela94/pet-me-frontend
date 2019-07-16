@@ -13,16 +13,12 @@ class Modal extends React.Component {
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <h2 class="modal-title">Sorry Try Again!<span role="img" aria-label="emoji">❤️</span></h2>
             </div>
             <div class="modal-body">
-              <p>Modal body text goes here.</p>
+              <p>Your username or password is incorrect.</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
               <button type="button" onClick={this.modalOff} class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
