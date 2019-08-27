@@ -16,6 +16,7 @@ class PetContainer extends React.Component {
       index: 0
     }
 
+
   componentDidMount() {
     const client = new Client({apiKey: "RqPmGmPGHQWIiCVG5gzphrFaw1QomsafGhyq22Q5yOz19zejel", secret: "sShiuXCl1mlIFd4p4Fq5TCwkCzf6ACDDidNipna4"});
 
@@ -69,8 +70,6 @@ class PetContainer extends React.Component {
 
 
   render(){
-
-    console.log("consolelog", this.state)
     const makingOneCat = this.state.cats.map((cat, idx) => {
       return (
             <Swipeable

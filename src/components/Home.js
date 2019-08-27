@@ -22,7 +22,7 @@ class Home extends React.Component {
               <p className="img__description">Cat List<span role="img" aria-label="emoji">❤️</span></p>
             </div>
             <div onClick={this.showDogs} className="img__wrap">
-              <img className="image" src="https://cdn.buzznick.com/wp-content/uploads/2018/12/funny-animals-sticking-tongues-65.jpg" alt="Dog" />
+              <img className="image" src="https://qph.fs.quoracdn.net/main-qimg-44de9537fb7ba0b62003689e25372019" alt="Dog" />
               <p className="img__description">Dog list<span role="img" aria-label="emoji">❤️</span></p>
             </div>
         </div>
